@@ -1,0 +1,46 @@
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f3f5;
+}
+
+.sidebar__container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px;
+}
+
+.sidebar__amount {
+  display: flex;
+  gap: 15px;
+}
+
+.sidebar_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 60px;
+  height: 48px;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
+
+.sidebar__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.sidebar__container_clientProduct {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}

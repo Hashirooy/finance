@@ -1,0 +1,34 @@
+.sidebar__info_element {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar__info_element_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar__info_element_box {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.sidebar__info_element_name {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.sidebar__info_element_tile {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+}
