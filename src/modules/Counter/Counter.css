@@ -1,0 +1,10 @@
+.counter {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.counter-instruments {
+  display: flex;
+  flex-direction: row;
+}

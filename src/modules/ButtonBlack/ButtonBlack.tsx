@@ -1,10 +1,30 @@
 import "./ButtonBlack.css";
-import { Children, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface BlackButtonProps {
+  onClick: () => void;
+  width: string;
+  height: string;
   children: ReactNode; // Define the type of 'children'
 }
 
-export const BlackButton = ({ children }: BlackButtonProps) => {
-  return <button className="blackbutton">{children}</button>;
+export const BlackButton = ({
+  children,
+  width,
+  height,
+  onClick,
+}: BlackButtonProps) => {
+  const submitClick = (e: React.FormEvent) => {
+    e.preventDefault();
+    onClick();
+  };
+  return (
+    <button
+      className="blackbutton"
+      style={{ width: width, height: height }}
+      onClick={submitClick}
+    >
+      {children}
+    </button>
+  );
 };

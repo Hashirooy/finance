@@ -1,25 +1,41 @@
+import { useState } from "react";
 import "./MonthMenu.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import Slider from "react-slick";
+import "swiper/swiper-bundle.css";
 
 export const MonthMenu = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+  const [isIndex, setIsIndex] = useState<number | null>(null);
+
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number) => {
+    e.preventDefault();
+    setIsIndex(index);
   };
   return (
-    <Slider>
-      {months.map((month) => (
-        <div key={month.id}>
-          <a href="" key={month.id}>
-            {month.name}
-          </a>
-        </div>
-      ))}
-    </Slider>
+    <div className="MonthMenu">
+      <div className="swiper-container">
+        <Swiper
+          loop={true}
+          spaceBetween={50}
+          slidesPerView={3}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
+        >
+          {months.map((month) => (
+            <SwiperSlide key={month.id}>
+              <a
+                href="#"
+                key={month.id}
+                onClick={(e) => onClick(e, month.id)}
+                className={`element ${month.id === isIndex ? "active" : ""}`}
+              >
+                {month.name}
+              </a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
   );
 };
 

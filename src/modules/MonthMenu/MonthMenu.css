@@ -1,12 +1,42 @@
-.month-menu {
-  width: 100%;
+.MonthMenu {
+  width: 50%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 50px;
 }
 
-.month-menu-element {
-  display: flex;
-  width: 100%;
-  height: 100%;
+.element {
+  text-decoration: none;
+
+  font-family: "Poppins", sans-serif;
+  color: #222224;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: color 0.3s ease;
+}
+
+.swiper-container {
+  padding: 50px;
+}
+
+a:hover {
+  text-decoration: none; /* Убирает подчеркивание при наведении */
+  font-family: "Poppins", sans-serif; /* Шрифт */
+  color: rgb(243, 99, 99);
+  font-size: 20px; /* Размер шрифта */
+  font-weight: 500; /* Жирность шрифта */
+  line-height: 24px; /* Межстрочный интервал */
+}
+
+.element.active {
+  text-decoration: none;
+
+  font-family: "Poppins", sans-serif;
+  color: #f33535;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: color 0.3s ease;
 }
