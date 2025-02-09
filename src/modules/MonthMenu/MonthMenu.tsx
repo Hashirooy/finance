@@ -3,13 +3,17 @@ import "./MonthMenu.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper-bundle.css";
+import { useStoreActions } from "../../store";
+import { date } from "../Store/Calendar";
 
 export const MonthMenu = () => {
   const [isIndex, setIsIndex] = useState<number | null>(null);
+  const setMonth = useStoreActions((state)=> state.calendarStore.setMonth)
 
-  const onClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number) => {
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>, month:date) => {
     e.preventDefault();
-    setIsIndex(index);
+    setMonth(month)
+    setIsIndex(month.id);
   };
   return (
     <div className="MonthMenu">
@@ -26,7 +30,7 @@ export const MonthMenu = () => {
               <a
                 href="#"
                 key={month.id}
-                onClick={(e) => onClick(e, month.id)}
+                onClick={(e) => onClick(e, month)}
                 className={`element ${month.id === isIndex ? "active" : ""}`}
               >
                 {month.name}
