@@ -18,34 +18,18 @@ import { useStoreState } from "../../store";
 export const CounterGraph = () => {
   const [isExpenses, setIsExpenses] = useState<expenses[]>([]);
   const expenses = useStoreState((state) => state.expensesStore.expenses);
+  const choosenMonth = useStoreState(
+    (state) => state.calendarStore.choosenMonth
+  );
 
   useEffect(() => {
-    const sumAmountToDate = () => {
-      const sortbyDateExpenses: { [key: string]: number } = {};
-      for (let i = 0; i < expenses.length; i++) {
-        const date = expenses[i].date;
-        const amount = expenses[i].amount;
-
-        if (sortbyDateExpenses[date]) {
-          sortbyDateExpenses[date] += amount;
-        } else {
-          sortbyDateExpenses[date] = amount;
-        }
+    const getExpenses = () => {
+      if (choosenMonth === "") {
+      } else {
       }
-      const expensesArray: expenses[] = Object.entries(sortbyDateExpenses).map(
-        ([date, amount]) => ({
-          date,
-          amount,
-        })
-      );
-      console.log(expensesArray);
-
-      // Обновляем состояние с массивом объектов
-      setIsExpenses(expensesArray);
     };
-
-    sumAmountToDate();
-  }, [expenses]);
+    getExpenses();
+  }, [expenses, choosenMonth]);
 
   return (
     <ResponsiveContainer width="60%" height="60%">

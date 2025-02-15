@@ -14,9 +14,12 @@ export const BlackButton = ({
   height,
   onClick,
 }: BlackButtonProps) => {
+    
+
   const submitClick = (e: React.FormEvent) => {
     e.preventDefault();
     onClick();
+    
   };
   return (
     <button

@@ -3,7 +3,7 @@ import "./CounterHistory.css";
 import { useStoreState } from "../../store";
 
 export const CounterHistory = () => {
-  const expenses = useStoreState((state) => state.expensesStore.expenses);
+  const expenses = useStoreState((state) => state.expensesStore.expenseHistory);
 
   return (
     <div className="counter-history">

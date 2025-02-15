@@ -1,24 +1,36 @@
 import { action, Action } from "easy-peasy";
 
-
 export interface date {
-  id:number,
-  name:string
+  id: number;
+  name: string;
 }
 export interface month {
-  monthList:"январь" | "февраль" |"март"|'апрель'|"май"| "июнь"|"июль"|"август"|"сентябрь"|"октябрь"|"ноябрь"|"декабрь"|""
+  monthList:
+    | "январь"
+    | "февраль"
+    | "март"
+    | "апрель"
+    | "май"
+    | "июнь"
+    | "июль"
+    | "август"
+    | "сентябрь"
+    | "октябрь"
+    | "ноябрь"
+    | "декабрь"
+    | "";
 }
 
-export interface calendarStore{
-  name:string,
-  month:date[],
-  choosenMonth: string
-  setMonth:Action<calendarStore, date>,
+export interface calendarStore {
+  name: string;
+  month: date[];
+  choosenMonth: string;
+  setMonth: Action<calendarStore, date>;
 }
 
-export const calendarStoreModel :calendarStore = {
-  name:"calendar",
-  choosenMonth:"",
+export const calendarStoreModel: calendarStore = {
+  name: "calendar",
+  choosenMonth: "",
   month: [
     { id: 1, name: "Январь" },
     { id: 2, name: "Февраль" },
@@ -33,8 +45,7 @@ export const calendarStoreModel :calendarStore = {
     { id: 11, name: "Ноябрь" },
     { id: 12, name: "Декабрь" },
   ],
-  setMonth:action((state, date)=>{
-    state.choosenMonth = date.name
-    
-  })
+  setMonth: action((state, date) => {
+    state.choosenMonth = date.name;
+  }),
 };
