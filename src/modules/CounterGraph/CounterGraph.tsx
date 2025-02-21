@@ -12,11 +12,11 @@ import {
   YAxis,
 } from "recharts";
 import { useEffect, useState } from "react";
-import { expenses } from "../Store/Charges";
+import { expense, expenses } from "../Store/Charges";
 import { useStoreState } from "../../store";
 
 export const CounterGraph = () => {
-  const [isExpenses, setIsExpenses] = useState<expenses[]>([]);
+  const [isExpenses, setIsExpenses] = useState<expense[]>([]);
   const expenses = useStoreState((state) => state.expensesStore.expenses);
   const choosenMonth = useStoreState(
     (state) => state.calendarStore.choosenMonth
@@ -24,8 +24,11 @@ export const CounterGraph = () => {
 
   useEffect(() => {
     const getExpenses = () => {
-      if (choosenMonth === "") {
+      if (choosenMonth === null) {
+        const mergedArray = Object.values(expenses).flat();
+        setIsExpenses(mergedArray);
       } else {
+        setIsExpenses(expenses[choosenMonth]);
       }
     };
     getExpenses();

@@ -24,13 +24,13 @@ export interface month {
 export interface calendarStore {
   name: string;
   month: date[];
-  choosenMonth: string;
+  choosenMonth: number | null;
   setMonth: Action<calendarStore, date>;
 }
 
 export const calendarStoreModel: calendarStore = {
   name: "calendar",
-  choosenMonth: "",
+  choosenMonth: null,
   month: [
     { id: 1, name: "Январь" },
     { id: 2, name: "Февраль" },
@@ -46,6 +46,6 @@ export const calendarStoreModel: calendarStore = {
     { id: 12, name: "Декабрь" },
   ],
   setMonth: action((state, date) => {
-    state.choosenMonth = date.name;
+    state.choosenMonth = date.id;
   }),
 };
